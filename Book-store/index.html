@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Libre Baskerville", serif;
+  font-weight: 400;
+  font-style: normal;
+        }
+ 
+
+
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .logo{
+            display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+        }
+        .logo>img{
+            width: 150px;
+            height: 70px;
+        }
+        nav>a{
+            padding: 15px;
+    text-decoration: none;
+    font-size: 22px;
+        }
+        .common-button{
+            background-color: lightblue;
+    border: darkblue;
+    color: rgb(6, 6, 71);
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 10px;
+        }
+        .shop-now{
+            background-image: url(assets/book-girl-1.jpg);
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 100px;
+        }
+        .darkblue{
+            color: darkblue;
+        }
+        .shop-now-content{
+            font-size: 2.5em;
+            color: rgb(8, 8, 78);
+        }
+        .w-150{
+            width: 150px;
+        }
+        .hamburger{
+            display: none;
+        }
+        .hamburger span{
+            width: 25px;
+            height: 3px;
+            margin: 5px;
+            background-color: darkblue;
+            
+        }
+        .new-product{
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .new-product-div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            gap:40px;
+            
+        }
+        .new-product-div img{
+            width: 150px;
+            height: 250px;
+        }
+        @media (max-width: 768px) {
+            .hamburger{
+                display: flex;
+                flex-direction: column;
+            }  
+            #nav-menu{
+                display: none;   
+                /* flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                background-color: white;
+                width: 100%;
+                padding: 20px; */
+            }
+
+            
+        nav.active {
+            display: flex;
+        }
+        .search{
+            display: none;
+        }
+        .shop-now{
+            padding: 0;
+            font-size: 8px;
+        }
+        
+        
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/book-logo.jpg" alt="book-logo">
+            <div>Book Mania</div>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav id="nav-menu">
+            <a href="">Home</a>
+            <a href="">Books</a>
+            <a href="">Categories</a>
+            <a href="">wishlist</a>
+            <a href="">Contacts</a>
+        </nav>
+        <div class="search">
+            <span class="search">S</span>
+            <span class="cart">C</span>
+        </div>
+        <button class="login-signup common-button">Register</button>
+    </header>
+    <main>
+        <section class="shop-now">
+            <div class="shop-now-content"><h1>Buy your</h1>
+            <h1>Favorite book</h1>
+        <h1>From here</h1></div>
+        <button class="buy-now common-button w-150">
+            Buy Now
+        </button>
+        </section>
+        <section class="new-product">
+            <h1 class="text-center" style="font-size: 2.5rem;">New <span class="darkblue" >Product</span>
+                </h1>
+            <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil est odio quae aliquid assumenda <br> totam provident deserunt. Commodi expedita aperiam temporibus, voluptate vitae dolor. Quis repellat iste fugiat aperiam ipsam?</p>
+            <div class="new-product-div">
+                <div class="new-product-cont">
+                    <img src="assets/buy-now-image-1.jpg" alt="">
+                    <h4>lsjdffndj</h4>
+                    <h3>$133</h3>
+                </div>
+                <div class="new-product-cont">
+                    <img src="assets/buy-now-image-1.jpg" alt="">
+                    <h4>lsjdffndj</h4>
+                    <h3>$133</h3>
+                </div>
+                <div class="new-product-cont">
+                    <img src="assets/buy-now-image-1.jpg" alt="">
+                    <h4>lsjdffndj</h4>
+                    <h3>$133</h3>
+                </div>
+                <div class="new-product-cont">
+                    <img src="assets/buy-now-image-1.jpg" alt="">
+                    <h4>lsjdffndj</h4>
+                    <h3>$133</h3>
+                    <div class="like">L</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+</body>
+</html>

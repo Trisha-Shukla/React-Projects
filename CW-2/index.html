@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script>
+        const h1 = React.createElement("h1", null, "React Labs: What We've Been Working On – June 2022");
+        const div1 = React.createElement("div", null, React.createElement("p", null, "React 18 was years in the making, and with it brought valuable lessons for the React team. Its release was the result of many years of research and exploring many paths. Some of those paths were successful; many more were dead-ends that led to new insights. One lesson we’ve learned is that it’s frustrating for the community to wait for new features without having insight into these paths that were exploring"));
+        const div2 = React.createElement("div", null, 
+            React.createElement("p", null, "We typically have a number of projects being worked on at any time, ranging from the more experimental to the clearly defined. Looking ahead, we’d like to start regularly sharing more about what we’ve been working on with the community across these projects."),
+            React.createElement("a", { href: "https://legacy.reactjs.org/blog/2022/06/15/react-labs-what-we-have-been-working-on-june-2022.html" }, "Click here")
+        );
+        const div3 = React.createElement("div", null, React.createElement("p", null, "To set expectations, this is not a roadmap with clear timelines. Many of these projects are under active research and are difficult to put concrete ship dates on. They may possibly never even ship in their current iteration depending on what we learn. Instead, we want to share with you the problem spaces we’re actively thinking about, and what we’ve learned so far."));
+        
+        const reactElement = React.createElement("div", null, h1, div1, div2, div3);
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(reactElement);
+    </script>
+</body>
+</html>

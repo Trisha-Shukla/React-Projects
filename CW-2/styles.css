@@ -1,0 +1,28 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: darkblue;
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+div {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+a {
+    color: darkgreen;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: darkred;
+}
