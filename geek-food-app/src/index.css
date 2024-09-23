@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.custom-hover {
+    @apply hover:text-gray-600 hover:cursor-pointer;
+  }
+
+  .custom-button{
+    @apply w-fit bg-blue-700 text-white text-lg px-3 py-1 rounded-md order-2 lg:order-3 justify-self-end;
+  }
