@@ -15,9 +15,9 @@ function Header(){
             
                 <li ><NavLink to="/" className={({isActive})=>`hover:text-blue-600 ${isActive?"text-blue-600":"text-black"} hover:cursor-pointer`}>Home</NavLink></li>
                 <li ><NavLink to="/quotes" className={({isActive})=>`hover:text-blue-600 ${isActive?"text-blue-600":"text-black"} hover:cursor-pointer`}>Quotes</NavLink></li>
-                <li ><NavLink to="/" className={()=>`hover:text-blue-600  hover:cursor-pointer`}>Restaurants</NavLink></li>
-                <li ><NavLink to="/" className={()=>`hover:text-blue-600  hover:cursor-pointer`}>Foods</NavLink></li>
-                <li ><NavLink to="/" className={()=>`hover:text-blue-600  hover:cursor-pointer`}>Contact</NavLink></li>
+                <li ><NavLink to="" className={()=>`hover:text-blue-600  hover:cursor-pointer`}>Restaurants</NavLink></li>
+                <li ><NavLink to="" className={()=>`hover:text-blue-600  hover:cursor-pointer`}>Foods</NavLink></li>
+                <li ><NavLink to="" className={()=>`hover:text-blue-600  hover:cursor-pointer`}>Contact</NavLink></li>
                 
             </ul>
             <div className="text-2xl font-bold order-3 lg:hidden justify-self-center">=</div>
