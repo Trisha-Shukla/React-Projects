@@ -73,7 +73,7 @@ function App() {
     console.log(newValue);
     const updatedData = [...data];
   
-  // Check if index is valid and update the value
+  
   if (index >= 0 && index < updatedData.length) {
     updatedData[index].initialValue = newValue;
     setData(updatedData);
