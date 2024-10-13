@@ -1,0 +1,24 @@
+.imageElementContainer{
+    display:flex;
+    background-color: darkgrey;
+    height: 100vh;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+
+}
+.imageBox{
+    width:50%;
+    height:500px
+}
+@media (max-width:786px){
+    .imageElementContainer{
+        flex-direction: column;
+    }
+    .imageBox{
+        width: fit-content;
+        overflow: hidden;
+    }
+
+}

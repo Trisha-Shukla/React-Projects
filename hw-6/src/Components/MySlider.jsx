@@ -2,6 +2,8 @@ import {React,useState} from 'react'
 import Slider from '@mui/material/Slider';
 
 function MySlider({ headingTop, initialValue = 0, min, max, currency, handleValue , index }) {
+
+  setInterval
     return (
       <div className="p-4">
         <h1>{headingTop}</h1>

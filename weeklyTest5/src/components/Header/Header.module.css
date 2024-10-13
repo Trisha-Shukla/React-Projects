@@ -1,0 +1,17 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #e8e3e3;
+
+}
+.inputSeach{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.inputSeach input,.inputSeach button{
+    padding:10px;
+}
