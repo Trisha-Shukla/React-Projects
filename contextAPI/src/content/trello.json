@@ -1,0 +1,30 @@
+{
+    "lists": [
+      {
+        "name": "To Do",
+        "cards": [
+          { "id": 1, "title": "list actions menu: sort by" },
+          { "id": 2, "title": "list: edit title" },
+          { "id": 3, "title": "localStorage: set/get" },
+          { "id": 4, "title": "css: fix bugs" },
+          { "id": 5, "title": "testing: add tests for reducer fns & utils" }
+        ]
+      },
+      {
+        "name": "In Progress",
+        "cards": [
+          { "id": 6, "title": "list actions menu: copy list" }
+        ]
+      },
+      {
+        "name": "Done",
+        "cards": [
+          { "id": 7, "title": "show about menu: button" },
+          { "id": 8, "title": "list actions menu: archive all cards, move all cards to a list, archive list, add card, move list" },
+          { "id": 9, "title": "list: add, remove, move" },
+          { "id": 10, "title": "task: add, edit, remove, move" }
+        ]
+      }
+    ]
+  }
+  
