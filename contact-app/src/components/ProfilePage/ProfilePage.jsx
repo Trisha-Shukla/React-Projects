@@ -12,7 +12,7 @@ function ProfilePage() {
     console.log(contactLists.contactList);
     const dispatch=useDispatch();
     const [filteredList, setFilteredList] = useState(contactLists.contactList);
-    const searchContact=contactLists.searchInput;
+    const searchContact=contactLists.searchContact;
     console.log(searchContact);
     
 
@@ -26,6 +26,8 @@ function ProfilePage() {
     
     useEffect(()=>{
         console.log(contactLists.contactList);
+        console.log(searchContact);
+        
         if(searchContact){
 
             const filteredList=   contactLists.contactList.filter((contact)=>
@@ -54,7 +56,7 @@ function ProfilePage() {
         </thead>
         {
             (searchContact)?(
-                setFilteredList.map((list)=>(
+                filteredList.map((list)=>(
                     <tbody key={list.id} style={{border:"1px solid black"}}>
                     <tr style={{textAlign:'center'}}>
                         <td>
