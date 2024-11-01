@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  background: #131417;
+  font-family: "Poppins", sans-serif;
+}
+.SplitPane {
+  height: 100vh !important; /* Full viewport height */
+  width: 100vw !important;  /* Full viewport width */
+}
+
+.pane {
+  height: 100%;  /* Full height of the parent */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #2c2c2e; /* Dark background for visibility */
+}
+
+.Resizer {
+  background: #fff !important; /* Resizer color for better visibility */
+  
+  height: 10px !important; /* Adjust height for horizontal resizer */
+  opacity: 0.5 !important;
+  cursor: col-resize; /* or row-resize based on orientation */
+}
+/* Target elements with the data-type attribute set to Resizer */
+[data-type="Resizer"] {
+  background: #ffffff !important;
+  opacity: 0.5;
+  cursor: col-resize; /* Adjust based on orientation */
+}
+
+.Resizer:hover {
+  background: #aaa !important; /* Lighter color on hover */
+}
+
+
+.pane1 {
+  background-color: #2c2c2e;
+}
+
+.pane2 {
+  background-color: #3c3c3e;
+}
+
+.pane3 {
+  background-color: #4c4c4e;
+}
+
+
+
+.Resizer.horizontal {
+  height: 10px;
+  width:100%;
+  cursor: row-resize;
+}
+
+.Resizer.vertical {
+  width: 5px;
+  height:100%;
+  cursor: col-resize;
+}
+.CodeMirror {
+  height: 340px !important;
+  color: #fff;
+}
+.CodeMirror-gutters {
+  background: #1d1e22 !important;
+}
+.CodeMirror-scroll {
+  background: #1d1e22;
+}
+
+.CodeMirror {
+  padding-top: 0 !important;
+}
+
+.SplitPane.horizontal {
+  top: 100px !important;
+}
+
+.ͼo {
+  background: #131417 !important;
+}

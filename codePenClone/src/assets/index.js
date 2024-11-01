@@ -1,0 +1,1 @@
+export {default as logo } from './Image/logo.webp'
