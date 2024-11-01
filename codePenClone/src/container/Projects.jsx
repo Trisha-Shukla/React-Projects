@@ -26,7 +26,7 @@ const Projects = () => {
       
       setFiltered(filteredProjects);
     } else {
-      setFiltered(projects); // Display all projects if search term is empty
+      setFiltered(projects); 
     }
   }, [searchTerm, projects]);
 
