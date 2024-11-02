@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaChevronDown, FaCss3, FaHtml5, FaJs } from 'react-icons/fa';
 import { FcSettings } from 'react-icons/fc';
-import SplitPane from 'react-split-pane';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { Link } from 'react-router-dom';
@@ -44,8 +43,6 @@ const NewProject = () => {
 
   const saveProgram = async () => {
     try {
-      console.log(" save clicked");
-
       const id = Date.now().toString();
       const _doc = {
         id: id,
@@ -73,119 +70,103 @@ const NewProject = () => {
   }, [html, css, js]);
 
   return (
-    <div className='w-screen h-screen text-white'>
+    <div className='w-screen h-screen text-white flex flex-col bg-gray-900'>
       {alert && <Alert status={'Success'} alertMsg={"Project Saved..."} />}
-      {/* header */}
-      <div className='w-full flex items-center justify-between px-4 py-12'>
-        {/* logo */}
+      
+      {/* Header */}
+      <div className='w-full flex items-center justify-between px-4 py-4 bg-gray-800'>
         <div className='flex items-center justify-center gap-6'>
           <Link to={'home/projects'}>
             <img src={logo} alt="logo" className='w-32 object-contain h-auto' />
           </Link>
-
-          {/* title */}
           <div className='flex flex-col items-center'>
             <div className='flex items-center justify-center gap-3'>
               <div>
-                {isTitle ? <input type="text" placeholder='Your Title' value={title} onChange={(e) => { setTitle(e.target.value) }} className='px-3 py-2 bg-transparent rounded-sm border-none outline-none text-lg text-primaryText' /> :
-                  <p className='px-3 py-2 text-white text-lg'>{title}</p>}
+                {isTitle ? (
+                  <input 
+                    type="text" 
+                    placeholder='Your Title' 
+                    value={title} 
+                    onChange={(e) => setTitle(e.target.value)} 
+                    className='px-3 py-2 bg-gray-700 rounded-sm border-none outline-none text-lg text-white' 
+                  />
+                ) : (
+                  <p className='px-3 py-2 text-white text-lg'>{title}</p>
+                )}
               </div>
-              <div>
-                {
-                  isTitle ? <div className=' cursor-pointer active:scale-95 transition-transform duration-200 ease-in-out' onClick={() => { setIsTitle(false) }}>
-                    <MdCheck className='text-2xl text-emerald-500' />
-                  </div> : <div className=' cursor-pointer active:scale-95 transition-transform duration-200 ease-in-out' onClick={() => { setIsTitle(true) }}>
-                    <MdEdit className='text-2xl text-primaryText' />
-                  </div>
-                }
+              <div onClick={() => setIsTitle(!isTitle)} className='cursor-pointer'>
+                {isTitle ? <MdCheck className='text-2xl text-emerald-500' /> : <MdEdit className='text-2xl text-white' />}
               </div>
             </div>
-            {/* follow */}
             <div className='flex items-center justify-center px-3 -mt-2 gap-2'>
-              <p className='text-primaryText text-sm'>
-                {user?.displayName ? user?.displayName : `${user?.email.split('@')[0]}`}
-              </p>
-              <p className='text-[10px] bg-emerald-500 rounded-sm px-2 py-[1px] text-primary font-semibold cursor-pointer'>
-                + Follow
-              </p>
+              <p className='text-gray-400 text-sm'>{user?.displayName || user?.email.split('@')[0]}</p>
+              <p className='text-[10px] bg-emerald-500 rounded-sm px-2 py-[1px] text-primary font-semibold cursor-pointer'>+ Follow</p>
             </div>
           </div>
         </div>
-        {/* save */}
-        {
-          user && (<div className='flex items-center justify-center gap-4'>
-            <button className='px-6 py-4 bg-primaryText cursor-pointer text-base active:scale-95 transition-transform duration-200  ease-in-out text-primary font-semibold rounded-md' onClick={saveProgram}>Save</button>
+        {user && (
+          <div className='flex items-center justify-center gap-4'>
+            <button className='px-6 py-2 bg-emerald-500 text-base font-semibold rounded-md' onClick={saveProgram}>Save</button>
             <UserProfileDetails />
           </div>
-          )
-        }
+        )}
       </div>
 
-      <SplitPane split="horizontal" minSize={100} maxSize={-100} defaultSize={'50%'}>
-        {/* Top Pane */}
-        <div className='w-full h-full'>
-          <SplitPane split='vertical' minSize={500}>
-            {/* html */}
-            <div className='w-full h-full flex flex-col items-start justify-start px-1'>
-              <div className='icon-container bg-secondary px-4 py-2 border-t-4 flex items-center justify-between gap-3 border-t-gray-500' style={{ position: 'sticky', top: 0, zIndex: 1 }}>
-                <FaHtml5 className='text-xl text-red-500' />
-                <p className='text-primaryText font-semibold'>HTML</p>
-                <div className='cursor-pointer flex items-center justify-center gap-5 px-4'>
-                  <FcSettings className='text-xl' />
-                  <FaChevronDown className='text-xl text-primaryText' />
-                </div>
-              </div>
-              <div className='editor-panel w-full h-full px-2' style={{ overflowY: 'auto' }}>
-                <CodeMirror value={html} height="600px" theme={"dark"} extensions={[javascript({ jsx: true })]} onChange={(value, viewUpdate) => { setHtml(value) }} style={{
-      overflowY: 'auto',
-      height: '100%',
-    }}/>
+      {/* Main Content */}
+      <div className='flex flex-col flex-grow h-full'>
+        
+        {/* Editor Section */}
+        <div className='grid grid-cols-3 gap-4 p-4 h-1/2'>
+          
+          {/* HTML Editor */}
+          <div className='flex flex-col bg-gray-800 rounded-lg overflow-hidden'>
+            <div className='bg-gray-700 px-4 py-2 flex items-center justify-between'>
+              <FaHtml5 className='text-xl text-red-500' />
+              <p className='text-white font-semibold'>HTML</p>
+              <div className='flex items-center gap-2'>
+                <FcSettings className='text-xl' />
+                <FaChevronDown className='text-xl text-white' />
               </div>
             </div>
-            
-            {/* css */}
-            <div className='w-full h-full flex flex-col items-start justify-start px-1'>
-              <div className='icon-container bg-secondary px-4 py-2 border-t-4 flex items-center justify-between gap-3 border-t-gray-500' style={{ position: 'sticky', top: 0, zIndex: 1 }}>
-                <FaCss3 className='text-xl text-blue-500' />
-                <p className='text-primaryText font-semibold'>CSS</p>
-                <div className='cursor-pointer flex items-center justify-center gap-5 px-4'>
-                  <FcSettings className='text-xl' />
-                  <FaChevronDown className='text-xl text-primaryText' />
-                </div>
-              </div>
-              <div className='editor-panel w-full h-full px-2' style={{ overflowY: 'auto' }}>
-                <CodeMirror value={css} height="600px" theme={"dark"} extensions={[javascript({ jsx: true })]} onChange={(value, viewUpdate) => { setCss(value) }} style={{
-      overflowY: 'auto',
-      height: '100%',
-    }}/>
-              </div>
-            </div>
+            <CodeMirror value={html} height="100%" theme="dark" extensions={[javascript({ jsx: true })]} onChange={(value) => setHtml(value)} className='flex-grow overflow-auto' />
+          </div>
 
-            {/* js */}
-            <div className='w-full h-full flex flex-col items-start justify-start px-1'>
-              <div className='icon-container bg-secondary px-4 py-2 border-t-4 flex items-center justify-between gap-3 border-t-gray-500' style={{ position: 'sticky', top: 0, zIndex: 1 }}>
-                <FaJs className='text-xl text-yellow-500' />
-                <p className='text-primaryText font-semibold'>JS</p>
-                <div className='cursor-pointer flex items-center justify-center gap-5 px-4'>
-                  <FcSettings className='text-xl' />
-                  <FaChevronDown className='text-xl text-primaryText' />
-                </div>
-              </div>
-              <div className='editor-panel w-full h-full px-2' style={{ overflowY: 'auto' }}>
-                <CodeMirror value={js} height="600px" theme={"dark"} extensions={[javascript({ jsx: true })]} onChange={(value, viewUpdate) => { setJs(value) }} style={{
-      overflowY: 'auto',
-      height: '100%',
-    }}/>
+          {/* CSS Editor */}
+          <div className='flex flex-col bg-gray-800 rounded-lg overflow-hidden'>
+            <div className='bg-gray-700 px-4 py-2 flex items-center justify-between'>
+              <FaCss3 className='text-xl text-blue-500' />
+              <p className='text-white font-semibold'>CSS</p>
+              <div className='flex items-center gap-2'>
+                <FcSettings className='text-xl' />
+                <FaChevronDown className='text-xl text-white' />
               </div>
             </div>
-          </SplitPane>
+            <CodeMirror value={css} height="100%" theme="dark" extensions={[javascript({ jsx: true })]} onChange={(value) => setCss(value)} className='flex-grow overflow-auto' />
+          </div>
+
+          {/* JS Editor */}
+          <div className='flex flex-col bg-gray-800 rounded-lg overflow-hidden'>
+            <div className='bg-gray-700 px-4 py-2 flex items-center justify-between'>
+              <FaJs className='text-xl text-yellow-500' />
+              <p className='text-white font-semibold'>JS</p>
+              <div className='flex items-center gap-2'>
+                <FcSettings className='text-xl' />
+                <FaChevronDown className='text-xl text-white' />
+              </div>
+            </div>
+            <CodeMirror value={js} height="100%" theme="dark" extensions={[javascript({ jsx: true })]} onChange={(value) => setJs(value)} className='flex-grow overflow-auto' />
+          </div>
+
         </div>
 
-        {/* Bottom Pane */}
-        <div className='bg-white h-full overflow-hidden'>
-          <iframe srcDoc={output} className='h-full w-full border-none' title='result'></iframe>
+        {/* Output Section */}
+        <div className='flex-grow p-4'>
+          <div className='bg-white rounded-lg h-full overflow-auto'>
+            <iframe srcDoc={output} className='w-full h-full border-none' title='result'></iframe>
+          </div>
         </div>
-      </SplitPane>
+        
+      </div>
     </div>
   );
 };
