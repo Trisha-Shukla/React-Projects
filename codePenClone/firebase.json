@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/codePenClone",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",
