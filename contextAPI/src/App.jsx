@@ -35,7 +35,7 @@ function App() {
   return (
     
       <DndProvider backend={HTML5Backend}>
-      <div className='bg-blue-600 min-h-screen h-full '>
+      <div className='bg-blue-600 min-h-screen h-full min-w-[100vw] '>
         <header className='bg-blue-700 text-gray-600 flex justify-center p-2'>
         <img id="trello-logo" src="https://trello-clone-rts.vercel.app/trello-logo.gif" className='h-4 opacity-50' alt="trello-logo"  />
         </header>
