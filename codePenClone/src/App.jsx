@@ -22,12 +22,12 @@ function App() {
         setDoc(doc(db,'users',userCred?.uid),userCred?.providerData[0])
         .then(()=>{
           dispatch(setUser(userCred?.providerData[0]));
-          navigate("/home/projects", {replace:true});
+          navigate("/projects", {replace:true});
         })
         
       }
       else{
-        navigate("/home/auth", {replace:true});
+        navigate("/auth", {replace:true});
       }
       setLoader(false);
     });
@@ -57,9 +57,9 @@ function App() {
       <Loader/>
     </div> :
     <Routes>
-     <Route path='/home/*' element={<Home />}/>
+     <Route path='/*' element={<Home />}/>
      <Route path='/newProject' element={<NewProject/>}/>
-     <Route path='*' element={ <Navigate to={'/home'}/>}/>
+     <Route path='*' element={ <Navigate to={'/'}/>}/>
      </Routes> 
    
   )

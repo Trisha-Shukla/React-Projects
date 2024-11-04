@@ -29,7 +29,7 @@ const Home = () => {
   const handleStartCodingClick = () => {
     if (!user) {
       // If not signed in, redirect to sign-up page
-      navigate('/home/auth');
+      navigate('/auth');
     } else {
       // If signed in, go to the new project page
       navigate('/newProject');
@@ -48,7 +48,7 @@ const Home = () => {
           }
         </div>
         <div className='group overflow-hidden w-full flex flex-col gap-4'>
-          <Link to={'/home'}>
+          <Link to={'/'}>
             <img src={logo} alt="logo" className='w-72 object-contain h-auto' />
           </Link>
           {/* Start Coding Button */}
@@ -56,7 +56,7 @@ const Home = () => {
             <p className='text-gray-400 text-xl hover:text-gray-200 capitalize'>Start Coding</p>
           </div>
           {user && (
-            <Link to={'home/projects'}>
+            <Link to={'/projects'}>
               <div className='flex justify-center items-center gap-4 text-xl cursor-pointer text-gray-400 hover:text-gray-200'>
                 <IoHome />
                 <p>Home</p>
@@ -82,7 +82,7 @@ const Home = () => {
           {/* Sign Up */}
           {!user && (
             <div className='flex justify-center items-center'>
-              <Link to='/home/auth' className='bg-emerald-500 px-4 py-2 rounded-md text-white cursor-pointer hover:bg-emerald-700 active:scale-95 transition-transform duration-200 '>SignUp</Link>
+              <Link to='/auth' className='bg-emerald-500 px-4 py-2 rounded-md text-white cursor-pointer hover:bg-emerald-700 active:scale-95 transition-transform duration-200 '>SignUp</Link>
             </div>
           )}
           {/* User profile */}

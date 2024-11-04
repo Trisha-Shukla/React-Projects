@@ -8,7 +8,7 @@ const ProtectedRoute = ({ children }) => {
 
   // If there is no user data, redirect to the login or sign-up page
   if (!user) {
-    return <Navigate to="/home/auth" />;
+    return <Navigate to="/auth" />;
   }
 
   // If user is authenticated, render the protected component

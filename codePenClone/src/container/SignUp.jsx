@@ -43,7 +43,7 @@ const SignUp = () => {
         if (userCred) {
           console.log(userCred);
         }
-        navigate('/home/*')
+        navigate('/*')
 
 
       } catch (error) {

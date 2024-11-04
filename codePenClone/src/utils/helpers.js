@@ -14,9 +14,9 @@ export const signInWithGithub = async () => {
 };
 
 export const menu=[
-  { name:"Project", uri:'home/projects'},
-  { name:"Collections", uri:'home/collections'},
-  { name:"Profile", uri:'home/profile'},
+  { name:"Project", uri:'/projects'},
+  { name:"Collections", uri:'/collections'},
+  { name:"Profile", uri:'/profile'},
 ]
 
 export const onClickSignOut=async()=>{

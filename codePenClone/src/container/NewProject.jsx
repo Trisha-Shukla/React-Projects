@@ -112,10 +112,10 @@ const NewProject = () => {
         )}
       </div>
 
-      {/* Main Content */}
+      
       <div className='flex flex-col flex-grow h-full'>
         
-        {/* Editor Section */}
+        
         <div className='grid grid-cols-3 gap-4 p-4 h-1/2'>
           
           {/* HTML Editor */}
