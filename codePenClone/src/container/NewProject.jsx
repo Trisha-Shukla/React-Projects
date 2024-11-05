@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../config/firbaseConfig';
 import { Alert, UserProfileDetails } from '../component';
+import OnlineCompiler from './OnlineCompiler';
 
 const NewProject = () => {
   const [html, setHtml] = useState('');
@@ -19,6 +20,8 @@ const NewProject = () => {
   const [isTitle, setIsTitle] = useState('');
   const [title, setTitle] = useState('Untitled');
   const [alert, setAlert] = useState(false);
+  const [selectLang, setSelectLang] = useState(false);
+  const [languageId, setLanguageId] = useState(52); // Default to C++
   const user = useSelector((state) => state.users.userData);
 
   const updateOutput = () => {
@@ -65,6 +68,16 @@ const NewProject = () => {
     }, 2000);
   };
 
+  const handleLang=(e)=>{
+    if(e.target.value==='JS'){
+      setSelectLang(false)
+    }
+    else{
+      setSelectLang(true);
+      setLanguageId(e.target.value);
+    }
+  }
+
   useEffect(() => {
     updateOutput();
   }, [html, css, js]);
@@ -102,9 +115,20 @@ const NewProject = () => {
               <p className='text-gray-400 text-sm'>{user?.displayName || user?.email.split('@')[0]}</p>
               <p className='text-[10px] bg-emerald-500 rounded-sm px-2 py-[1px] text-primary font-semibold cursor-pointer'>+ Follow</p>
             </div>
+           
           </div>
+           {/* select lang */}
+           <div>
+              <label htmlFor="language">Select Language</label>
+              <select name="" id="language" className='text-primaryText border-none outline-none bg-transparent' onChange={handleLang}>
+              <option value="JS">JS</option>
+              <option value="52">C++</option>
+          <option value="62">Java</option>
+          <option value="71">Python</option>
+              </select>
+            </div>
         </div>
-        {user && (
+        {(user && !selectLang) && (
           <div className='flex items-center justify-center gap-4'>
             <button className='px-6 py-2 bg-emerald-500 text-base font-semibold rounded-md' onClick={saveProgram}>Save</button>
             <UserProfileDetails />
@@ -113,7 +137,11 @@ const NewProject = () => {
       </div>
 
       
-      <div className='flex flex-col flex-grow h-full'>
+      {
+        selectLang? ( <div>
+          <OnlineCompiler languageId={languageId}/>
+        </div> ):(
+          <div className='flex flex-col flex-grow h-full'>
         
         
         <div className='grid grid-cols-3 gap-4 p-4 h-1/2'>
@@ -167,6 +195,8 @@ const NewProject = () => {
         </div>
         
       </div>
+        )
+      }
     </div>
   );
 };
