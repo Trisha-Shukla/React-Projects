@@ -18,7 +18,6 @@ You can view the live version of this project on Vercel: [CodePen Clone](https:/
 - [Usage](#usage)
 - [Future Enhancements](#future-enhancements)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
@@ -27,7 +26,16 @@ You can view the live version of this project on Vercel: [CodePen Clone](https:/
 - **Code Editor with Real-Time Preview**: Integrated editor for HTML, CSS, and JavaScript with real-time output.
 - **User Profile**: Users can view and manage their saved Pens from their profile page.
 - **Responsive Design**: The UI adapts seamlessly to different screen sizes, making it accessible from both desktop and mobile devices.
+- **Online Code Execution**: Integrated CodeJudge API to allow users to compile and run code in multiple languages directly within the app.
 - **Persistent Data Storage**: All pens and user data are stored in Firebase Firestore, enabling data persistence and user-specific content.
+
+## CodeJudge API Integration
+The CodePen Clone incorporates the CodeJudge API to provide a full-featured online compiler where users can write and execute code in multiple languages directly within the app. This enables users to test their code without leaving the platform.
+
+**API Integration**: The app uses Axios to make requests to the CodeJudge API, which allows users to submit code, specify the programming language, and receive the output.
+**Language Support**: CodeJudge API supports various languages, enabling users to work with different tech stacks.
+**Security**: The API key is securely stored in environment variables to prevent exposure in the codebase.
+**Error Handling**: The app includes error handling to display meaningful messages if there is an issue with the code submission or response from the API.
 
 ## Technologies Used
 
@@ -57,3 +65,5 @@ codepen-clone/
 │   ├── index.js                # Main entry point
 ├── .env                        # Environment variables for Firebase
 └── README.md                   # Project documentation
+
+
