@@ -9,7 +9,7 @@ const MainContainer = () => {
   const dispatch = useDispatch();
 
   const handleDescription=(e,id)=>{
-      dispatch(updateDescription(id,e.target.value));
+      dispatch(updateDescription({id,newDescription:e.target.value}));
   }
 
   const handleSearch = () => {

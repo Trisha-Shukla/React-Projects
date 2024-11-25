@@ -31,6 +31,8 @@ const weatherDetailSlice = createSlice({
     },
     updateDescription:(state,action)=>{
       const {id,newDescription}=action.payload;
+      console.log(newDescription);
+      
       const city=state.weatherData.find((data)=> data.id ===id)
       if(city){
         city.description =newDescription;
