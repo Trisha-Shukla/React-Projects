@@ -2,10 +2,10 @@
 A Warehouse Management System built using HTML, CSS, React, and Redux to streamline inventory and logistics operations. This project is designed to help users efficiently manage their warehouse data with a responsive and interactive user interface.
 
 ## 🚀 Live Demo
-Check out the live project: Warehouse Management System
+Check out the live project: [Warehouse Management System](https://warehouse-project-ts.vercel.app/)
 
 ## 📂 Repository
-Explore the code: GitHub Repository
+Explore the code: [GitHub Repository](https://github.com/Trisha-Shukla/React-Projects/tree/main/warehouse-project)
 
 ## 📋 Table of Contents
 - Introduction
