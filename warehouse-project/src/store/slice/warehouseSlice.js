@@ -27,11 +27,19 @@ const warehouseSLice=createSlice({
               return cityMatch && clusterMatch && spaceMatch;
             });
           },
+          updateWarehouse: (state, action) => {
+            const updatedWarehouse = action.payload;
+            state.listData = state.listData.map((warehouse) =>
+              warehouse.id === updatedWarehouse.id ? updatedWarehouse : warehouse
+            );
+            state.filteredData = state.listData; // Update the filtered data as well
+          },
+          
           resetFilters: (state) => {
             state.filteredData = state.listData; // Reset to the full list
           },
     }
 })
 
-export const {searchByName,filterByCriteria,resetFilters}=warehouseSLice.actions;
+export const {searchByName,filterByCriteria,updateWarehouse,resetFilters}=warehouseSLice.actions;
 export default warehouseSLice.reducer;
