@@ -8,17 +8,29 @@ export class Config{
     constructor(){
         this.client
         .setEndpoint(conf.appwriteUrl)
-        .setProject(conf.appwriteProjectId)
-        .this.databases=new Databases(this.client)
-        .this.bucket=new Storage(this.client)
+        .setProject(conf.appwriteProjectId);
+        this.databases=new Databases(this.client);
+        this.bucket=new Storage(this.client);
     }
+    
 
-    async  createDocument({title,slug,featuredImage,status,content,userId}){
-        try{
-            return await this.databases.createDocument(ID.unique(),conf.appwriteCollectionId,slug,{title,featuredImage,status,content,userId})
-        }
-        catch(error){
-            console.error(error)
+    
+    async createPost({title, slug, content, featuredImage, status, userId}){
+        try {
+            return await this.databases.createDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+                {
+                    title,
+                    content,
+                    featuredImage,
+                    status,
+                    userId,
+                }
+            )
+        } catch (error) {
+            console.log("Appwrite serive :: createPost :: error", error);
         }
     }
     async  getPost(slug){
@@ -29,7 +41,7 @@ export class Config{
             console.error(error)
         }
     }
-    async  updatedDocument(slug,{title,featuredImage,status,content}){
+    async  updatePost(slug,{title,featuredImage,status,content}){
         try{
             return await this.databases.updateDocument(conf.appwriteDatabaseId,conf.appwriteCollectionId,slug,{title,featuredImage,status,content})
         }
@@ -37,22 +49,27 @@ export class Config{
             console.error(error)
         }
     }
-    async  deleteDocument(slug){
+    async  deletePost(slug){
         try{
-            return await this.databases.deleteDocument(conf.appwriteDatabaseId,conf.appwriteCollectionId,slug)
+             await this.databases.deleteDocument(conf.appwriteDatabaseId,conf.appwriteCollectionId,slug)
+             return true
         }
         catch(error){
             console.error(error)
+            return false
         }
     }
     async  getPosts(queries=[Query.equal('status','active')]){
         try{
-            return await this.databases.listDocument(conf.appwriteDatabaseId,conf.appwriteCollectionId,queries)
+            return await this.databases.listDocuments(conf.appwriteDatabaseId,conf.appwriteCollectionId,queries)
         }
         catch(error){
             console.error(error)
         }
     }
+    
+    
+
     async uploadFile(file){
         try{
             return await this.bucket.createFile(conf.appwriteBucketId,ID.unique(),file)

@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { updateWarehouse } from '../store/slice/warehouseSlice';
-// import { updateWarehouse } from './warehouseSlice'; // Assuming you have an action to update the warehouse
+
 
 const DetailsPage = () => {
   const { id: warehouseId } = useParams();
   const warehouseData = useSelector((state) => state.warehouseDetails.filteredData);
   const dispatch = useDispatch();
 
-  // Find the selected warehouse
+  
   const warehouse = warehouseData.find((data) => data.id === parseInt(warehouseId));
 
-  // State to manage editable fields
+  
   const [editFields, setEditFields] = useState({
     name: warehouse?.name || '',
     city: warehouse?.city || '',
@@ -23,7 +23,7 @@ const DetailsPage = () => {
 
   const [customFields, setCustomFields] = useState([]);
 
-  // Handler for updating editable fields
+  
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setEditFields({
@@ -32,39 +32,39 @@ const DetailsPage = () => {
     });
   };
 
-  // Add a custom field
+  
   const addCustomField = () => {
     setCustomFields([...customFields, { key: '', value: '' }]);
   };
 
-  // Update custom field values
+  
   const handleCustomFieldChange = (index, field, value) => {
     const updatedFields = [...customFields];
     updatedFields[index][field] = value;
     setCustomFields(updatedFields);
   };
 
-  // Save the updated warehouse details
+  
   const saveChanges = () => {
     const updatedWarehouse = {
       ...warehouse,
       ...editFields,
-      customFields, // Include custom fields
+      customFields, 
     };
-    dispatch(updateWarehouse(updatedWarehouse)); // Update in Redux state
+    dispatch(updateWarehouse(updatedWarehouse)); 
     alert('Warehouse details updated successfully!');
   };
 
   return (
     <div className="flex flex-col lg:flex-row p-4 w-full h-full gap-3">
-      {/* Left: Image */}
+      
       <div className="w-full lg:w-[70%] h-full flex justify-center items-center">
         <img src={warehouse?.image} alt={warehouse?.name} className="w-full h-full" />
       </div>
 
-      {/* Right: Details and Edit Form */}
+      
       <div className="w-full h-full flex flex-col justify-center items-center gap-4 text-xl border-2 shadow-xl bg-yellow-100 p-4">
-        {/* Edit Fields */}
+        
         <div className="flex flex-col items-start gap-3 border-2 shadow-xl p-4 bg-white rounded-md w-full">
           <label>
             Name:
@@ -118,7 +118,7 @@ const DetailsPage = () => {
           </label>
         </div>
 
-        {/* Custom Fields */}
+        
         <div className="flex flex-col items-start gap-3 border-2 shadow-xl p-4 bg-white rounded-md w-full">
           <h3>Custom Fields:</h3>
           {customFields.map((field, index) => (
@@ -144,7 +144,7 @@ const DetailsPage = () => {
           </button>
         </div>
 
-        {/* Save Button */}
+        
         <button onClick={saveChanges} className="bg-green-500 text-white p-3 mt-4 w-full">
           Save Changes
         </button>

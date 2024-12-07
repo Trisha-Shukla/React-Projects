@@ -1,33 +1,29 @@
-.language {
-  display: inline;
+.traffic-light {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  height: 200px;
+  border: 2px solid black;
+  border-radius: 5px;
 }
-.heading {
-  font-size: 20px;
+
+.light {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 10px 0;
+  background-color: black;
 }
-#source {
-  width: 100% !important;
-  background: #cccccc52;
-  height: 50vh;
-  font-size: 15px;
-  resize: vertical;
+
+.red.on {
+  background-color: red;
 }
-#input {
-  background: #cccccc52;
-  width: 45.6%;
-  height: 17vh;
-  resize: vertical;
-  font-size: 17px;
+
+.yellow.on {
+  background-color: yellow;
 }
-#output {
-  background: #cccccc52;
-  width: 50%;
-  height: 100%;
-  position: fixed;
-  top: 7.6%;
-  font-size: 18px;
-  right: 0;
-  resize: none;
-}
-.language {
-  width: 150px;
+
+.green.on {
+  background-color: green;
 }

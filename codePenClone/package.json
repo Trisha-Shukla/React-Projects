@@ -10,7 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/lang-cpp": "^6.0.2",
+    "@codemirror/lang-java": "^6.0.1",
     "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/lang-python": "^6.1.6",
     "@reduxjs/toolkit": "^2.3.0",
     "@uiw/react-codemirror": "^4.23.6",
     "axios": "^1.7.7",

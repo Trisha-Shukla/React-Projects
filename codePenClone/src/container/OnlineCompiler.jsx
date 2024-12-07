@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import CodeMirror from '@uiw/react-codemirror';
+import { javascript } from '@codemirror/lang-javascript';
+import { python } from '@codemirror/lang-python';
+import { cpp } from '@codemirror/lang-cpp';
+import { java } from '@codemirror/lang-java';
 
 const OnlineCompiler = ({ languageId }) => {
   const [sourceCode, setSourceCode] = useState('');
@@ -8,6 +13,20 @@ const OnlineCompiler = ({ languageId }) => {
 
   const API_URL = 'https://judge0-ce.p.rapidapi.com/submissions';
   const RAPIDAPI_KEY = 'cf6cd21533msh413f0800c4a27f0p173288jsn1fb5359eaacb';
+
+  // Select CodeMirror language extension based on languageId
+  const getLanguageExtension = () => {
+    switch (languageId) {
+      case 71:
+        return python(); // Python
+      case 54:
+        return cpp(); // C++
+      case 62:
+        return java(); // Java
+      default:
+        return javascript(); // Default to JavaScript
+    }
+  };
 
   // Submit code to the Judge0 API
   const submitCode = async () => {
@@ -67,16 +86,16 @@ const OnlineCompiler = ({ languageId }) => {
 
   return (
     <div className="bg-gray-900 p-6 rounded-lg shadow-lg max-w-4xl mx-auto my-8">
-      {/* <h2 className="text-2xl font-semibold text-white mb-4">Online Compiler</h2> */}
-      
-      <textarea
+      <CodeMirror
         value={sourceCode}
-        onChange={(e) => setSourceCode(e.target.value)}
-        placeholder="Enter your code here..."
-        rows="10"
-        className="w-full p-4 text-white bg-gray-800 rounded-lg border border-gray-700 focus:outline-none focus:border-indigo-500 mb-4"
+        height="300px"
+        extensions={[getLanguageExtension()]}
+        onChange={(value) => setSourceCode(value)}
+        
+          theme= 'dark'
+    
+        className="w-full bg-gray-800 rounded-lg border border-gray-700 focus:outline-none mb-4"
       />
-
 
       <button
         onClick={submitCode}
