@@ -1,5 +1,5 @@
 import styles from './App.module.css'
-import { About, Experience, Hero, Navbar } from './components'
+import { About, Contact, Experience, Hero, Navbar, Projects } from './components'
 
 function App() {
 
@@ -9,6 +9,8 @@ function App() {
       <Hero/>
       <About/>
       <Experience/>
+      <Projects/>
+      <Contact/>
 
     </div> 
   )
